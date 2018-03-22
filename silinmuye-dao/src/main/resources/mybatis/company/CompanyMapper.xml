@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.muyenet.muye.dao.company.CompanyDao">
+    <resultMap id="CompanyResult" type="Company">
+      <id column="id" jdbcType="INTEGER" property="id" />
+      <result column="strTitle" jdbcType="VARCHAR" property="strTitle" />
+      <result column="strContent" jdbcType="VARCHAR" property="strContent" />
+      <result column="strManger" jdbcType="VARCHAR" property="strManger" />
+      <result column="strMangerName" jdbcType="VARCHAR" property="strMangerName" />
+      <result column="strMobile" jdbcType="VARCHAR" property="strMobile" />
+      <result column="strErWerUrl" jdbcType="VARCHAR" property="strErWerUrl" />
+      <result column="strLongitude" jdbcType="VARCHAR" property="strLongitude" />
+      <result column="strLatitude" jdbcType="VARCHAR" property="strLatitude" />
+      <result column="strAddress" jdbcType="VARCHAR" property="strAddress" />
+      <result column="strEmail" jdbcType="VARCHAR" property="strEmail" />
+      <result column="strWechat" jdbcType="VARCHAR" property="strWechat" />
+      <result column="strQQ" jdbcType="VARCHAR" property="strQQ" />
+      <result column="nStatus" jdbcType="INTEGER" property="nStatus" />
+    </resultMap>
+   <select id="findCompany" resultMap="CompanyResult">
+    select * from tbl_company where nStatus = 1 ORDER BY  id DESC  limit 1
+  </select>
+
+
+  <update id="update" parameterType="Company">
+    update tbl_company set
+    strTitle = #{strTitle},
+    strContent = #{strContent},
+    strManger = #{strManger},
+    strMangerName = #{strMangerName},
+    strMobile = #{strMobile},
+    strErWerUrl = #{strErWerUrl},
+    strLongitude = #{strLongitude} ,
+    strLatitude = #{strLatitude} ,
+     strAddress = #{strAddress} ,
+    strEmail = #{strEmail} ,
+   strWechat = #{strWechat} ,
+    strQQ = #{strQQ}
+    where nStatus = 1
+  </update>
+
+
+</mapper>
