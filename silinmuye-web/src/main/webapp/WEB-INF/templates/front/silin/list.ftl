@@ -69,7 +69,7 @@
 
                 </table>
             </div>
-            <div class="col-md-4 float-left">
+            <div class="col-md-4 float-left" id="leftDiv">
                 <div class="panel">
                     <span>官方微信二维码</span>
                    <img width="200px" height="200px"  src="${company.strErWerUrl}">
@@ -89,7 +89,7 @@
                 </div>
                 <div id="wallet20Map" class="mapdv"></div><br>
                 <a href="bdapp://map/marker?location=${company.strLatitude},${company.strLongitude}&title=Marker&content=makeamarker&traffic=on">用手机百度地图导航</a><br>
-                <a href="androidamap://navi?sourceApplication=appname&amp;poiname=fangheng&amp;lat=${company.strLatitude}&amp;lon=${company.strLongitude}&amp;dev=1&amp;style=2">用手机高德导航</a>
+               <#-- <a href="androidamap://navi?sourceApplication=appname&amp;poiname=fangheng&amp;lat=${company.strLatitude}&amp;lon=${company.strLongitude}&amp;dev=1&amp;style=2">用手机高德导航</a>-->
             <#if loginUser?? && loginUser.isAdmin &gt; 0><#--如果是管理员那么地图改变是显示经纬度-->
                 <input id="consoledv" name="consoledv" value="" onkeyup="value=value.replace(/[^0-9\.\,]/g,'')"  class="brk-input"  type="text"/>
             </#if>
@@ -127,6 +127,26 @@
         bkmarker.enableDragging();
 
         bkmap.setCurrentCity("郑州");
+    }
+    clientType();
+    function clientType() {
+        var userAgentInfo = navigator.userAgent;
+        var Agents = [ "iPhone", "iPad", "iPod"];
+        var Agents2 = "Android";
+        var flag = true;
+        for (var v = 0; v < Agents.length; v++) {
+            if (userAgentInfo.indexOf(Agents[v]) > 0) {
+                $("#leftDiv").append(
+                        "<a href='iosamap://navi?sourceApplication=appname&amp;poiname=fangheng&amp;lat=${company.strLatitude}&amp;lon=${company.strLongitude}&amp;dev=1&amp;style=2'>用手机高德导航</a><br>"
+                );
+                break;
+            }else if(userAgentInfo.indexOf(Agents2) > 0){
+                $("#leftDiv").append(
+                "<a href='androidamap://navi?sourceApplication=appname&amp;poiname=fangheng&amp;lat=${company.strLatitude}&amp;lon=${company.strLongitude}&amp;dev=1&amp;style=2'>用手机高德导航</a>"
+                );
+                break;
+            }
+        }
     }
 
 
