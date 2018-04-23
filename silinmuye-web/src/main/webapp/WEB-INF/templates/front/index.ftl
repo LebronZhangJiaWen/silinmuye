@@ -33,9 +33,9 @@
         li{ list-style:none}
         #rightButton{ position:fixed; _position:absolute; top:256px; right:0; z-index:999; display:block;}
         #right_ul{ position:relative;}
-        #right_qq{  background:url(${basePath}/res/front/images/qq_btn.jpg) no-repeat; width:46px; height:46px; }
-        #right_tel{ background:url(${basePath}/res/front/images/tel_btn.jpg) no-repeat; width:46px; height:46px; }
-        #top_btn{background: url(${basePath}/res/front/images/top_btn.jpg) no-repeat; width:46px; height:46px; cursor: pointer;}
+        #right_qq{  background:url(${basePath}/images/qq_btn.jpg) no-repeat; width:46px; height:46px; }
+        #right_tel{ background:url(${basePath}/images/tel_btn.jpg) no-repeat; width:46px; height:46px; }
+        #top_btn{background: url(${basePath}/images/top_btn.jpg) no-repeat; width:46px; height:46px; cursor: pointer;}
         #right_tip{  background:#F3F3F3; width:124px; padding-top: 4px; padding-bottom: 4px; position:absolute; right:56px; top:20px; display:none; z-index:999; }
         .flagShow_qq a{display: block; width: 100px; height: 28px; background: #fff; color: #2E2E2E; font:12px/28px 'Microsoft yahei'; margin: 0 auto 10px auto; padding-left: 6px; text-decoration: none; }
         .flagShow_qq a:hover{text-decoration: underline;}
