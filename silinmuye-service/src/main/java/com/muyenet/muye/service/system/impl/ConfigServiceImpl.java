@@ -44,8 +44,8 @@ public class ConfigServiceImpl implements IConfigService {
     @Override
     public ResponseModel update(Map<String, String> params, HttpServletRequest request) {
         for(Map.Entry entry : params.entrySet()){
-            if(((String)entry.getValue()).length() > 500){
-                return new ResponseModel(-1,"只能输入255个字符");
+            if(((String)entry.getValue()).length() > 2000){
+                return new ResponseModel(-1,"只能输入1000个字符");
             }else {
                 configDao.update((String)entry.getKey(),(String)entry.getValue());
                 request.getServletContext().setAttribute(((String)entry.getKey()).toUpperCase(),entry.getValue());
